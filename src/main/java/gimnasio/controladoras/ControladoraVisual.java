@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gimnasio.visual;
+package gimnasio.controladoras;
 
-import gimnasio.modelo.ControladoraLogica;
+import gimnasio.controladoras.ControladoraLogica;
+import gimnasio.visual.MainMenu;
+import gimnasio.visual.TablasCargar;
 import java.awt.Dimension;
 /**
  *

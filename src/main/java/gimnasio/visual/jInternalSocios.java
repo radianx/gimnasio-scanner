@@ -5,7 +5,7 @@
  */
 package gimnasio.visual;
 
-import gimnasio.modelo.ControladoraLogica;
+import gimnasio.controladoras.ControladoraLogica;
 
 /**
  *

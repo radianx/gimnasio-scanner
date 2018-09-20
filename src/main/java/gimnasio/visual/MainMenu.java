@@ -5,7 +5,7 @@
  */
 package gimnasio.visual;
 
-import gimnasio.modelo.ControladoraLogica;
+import gimnasio.controladoras.ControladoraLogica;
 import java.awt.Dimension;
 
 /**
@@ -43,7 +43,7 @@ public class MainMenu extends javax.swing.JFrame {
         this.jBtnIniciarSesion.setEnabled(true);
     }
     
-    MainMenu(TablasCargar cargadorDeTablas, ControladoraLogica logica) {
+    public MainMenu(TablasCargar cargadorDeTablas, ControladoraLogica logica) {
         cargador = cargadorDeTablas;
         laLogica = logica;
         panelSocios = new jInternalSocios();

@@ -3,8 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gimnasio.modelo;
+package gimnasio.controladoras;
 
+import gimnasio.modelo.AsistenciaSocio;
+import gimnasio.modelo.CajaDiaria;
+import gimnasio.modelo.Clase;
+import gimnasio.modelo.Cuota;
+import gimnasio.modelo.Entrenamiento;
+import gimnasio.modelo.Producto;
+import gimnasio.modelo.RegistroLogueo;
+import gimnasio.modelo.Socio;
+import gimnasio.modelo.Usuario;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;

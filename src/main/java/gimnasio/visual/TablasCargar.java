@@ -5,6 +5,7 @@
  */
 package gimnasio.visual;
 
+import gimnasio.controladoras.ControladoraVisual;
 import gimnasio.modelo.RegistroLogueo;
 import gimnasio.modelo.Usuario;
 import java.time.format.DateTimeFormatter;

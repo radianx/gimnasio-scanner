@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author adrian
  */
-class Cuota {
+public class Cuota {
     private LocalDateTime fechaCuota;
     private LocalDateTime fechaVencimiento;
     private float montoCuota;
