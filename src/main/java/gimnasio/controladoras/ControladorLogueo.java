@@ -28,7 +28,7 @@ public class ControladorLogueo implements ActionListener{
         this.main = main;
         addListener();
     }
-    asdf
+    //asdf
     private void addListener(){
         this.login.getAceptar().addActionListener(this);
         this.login.getCancelar().addActionListener(this);
