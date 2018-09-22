@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
  * @author adrian
  */
 //la variable presentismo puede ser a (ausente) o p (presente)
+//git la concha de la lora
 public class AsistenciaSocio {
     private LocalDateTime fechaAsistencia;
     private char presentismo;
