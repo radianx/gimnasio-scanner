@@ -6,6 +6,7 @@
 package gimnasio.modelo;
 
 import java.util.List;
+import javax.persistence.*;
 
 /**
  *
@@ -13,11 +14,25 @@ import java.util.List;
  */
 //la variable activo es falsa cuando el socio deja de asistir por un tiempo
 //mediante el constructor, activo siempre se inicializa en true
+@Entity
 public class Socio extends Persona{
+    
+    @Id
+    @Column
     private List<Cuota> cuotas;
+    
+    @OneToMany
     private List<AsistenciaSocio> asistencias;
+    
+    @Column
     private String certificadoMedico;
+    
+    @Column
     private boolean activo;
+    
+    
+    
+    
 
     public boolean isActivo() {
         return activo;

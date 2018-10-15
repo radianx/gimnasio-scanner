@@ -5,14 +5,29 @@
  */
 package gimnasio.modelo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author adrian
  */
+
+@Entity
 public class CajaDiaria {
+    
+    @Id
+    @Column
+    private int idCaja;
+    
+    @Column
     private float montoInicial;
+    
+    @Column
     private float montoTotal;
 
+    
+    
+    
     public void agregarMontoACaja(float monto){
         this.montoTotal += monto;
     }

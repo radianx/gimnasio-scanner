@@ -5,16 +5,30 @@
  */
 package gimnasio.modelo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author adrian
  */
+
+@Entity
 public class Persona {
+    @Id
+    @Column
     private String dni;
+    
+    @Column
     private String nombre;
+    
+    @Column
     private String apellido;
+    
+    @Column
     private String direccion;
 
+    
+    
     public String getDni() {
         return dni;
     }

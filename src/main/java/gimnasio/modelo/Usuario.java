@@ -8,16 +8,34 @@ package gimnasio.modelo;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.*;
+
 /**
  *
  * @author adrian
  */
+
+@Entity
 public class Usuario {
+    @Id
+    @Column
     private int codigoUsuario;
+    
+    @Column
     private String usuario;
+    
+    @Column
     private String nombre;
+    
+    @Column
     private String apellido;
+    
+    @Column
     private String password;
+    
+    @OneToMany
+    private List<Huella> huellas;
+    
 //    private List<RegistroLogueo> listaLogin = new ArrayList<>();
 
 

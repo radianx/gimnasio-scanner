@@ -6,16 +6,32 @@
 package gimnasio.modelo;
 
 import java.time.LocalDateTime;
+import javax.persistence.*;
 
 /**
  *
  * @author adrian
  */
+
+@Entity
 public class Cuota {
+    
+    @Id
+    @Column
+    private int codigo_cuota;
+    
+    @Column
     private LocalDateTime fechaCuota;
+    
+    @Column
     private LocalDateTime fechaVencimiento;
+    
+    @Column
     private float montoCuota;
 
+    
+    
+    
     public LocalDateTime getFechaCuota() {
         return fechaCuota;
     }

@@ -6,18 +6,36 @@
 package gimnasio.modelo;
 
 import java.time.LocalDateTime;
+import javax.persistence.*;
 
 /**
  *
  * @author adrian
  */
 //creada para clases de zumba, samba, crofi, peaMoa
+
+@Entity
 public class Clase {
+    
+    @Id
+    @Column
+    private int codigoClase;
+    
+    @Column
     private LocalDateTime horarioInicio;
+    
+    @Column
     private LocalDateTime horarioFin;
+    
+    @Column
     private int cupoMaximo;
+    
+    @Column
     private int cupoActual;
 
+    
+    
+    
     public LocalDateTime getHorarioInicio() {
         return horarioInicio;
     }

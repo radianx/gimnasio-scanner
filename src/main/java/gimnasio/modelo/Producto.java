@@ -5,16 +5,29 @@
  */
 package gimnasio.modelo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author adrian
  */
 public class Producto {
+    
+    @Id
+    @Column
     private String nombreProducto;
+    
+    @Column
     private String descripcionProducto;
+    
+    @Column
     private int cantidadEnStock;
+    
+    @Column
     private float precioUnitario;
 
+    
+    
     public String getNombreProducto() {
         return nombreProducto;
     }

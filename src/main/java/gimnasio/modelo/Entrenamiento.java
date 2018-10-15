@@ -5,13 +5,25 @@
  */
 package gimnasio.modelo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author adrian
  */
+
+@Entity
 public class Entrenamiento {
+    
+    @Id
+    @Column
+    private int codigo_entrenamiento;
+    
+    @Column
     private String nombre;
 
+    
+    
     public Entrenamiento() {
     }
 
