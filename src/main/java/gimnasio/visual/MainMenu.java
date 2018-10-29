@@ -18,7 +18,6 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     jInternalLogueo panelLogin = new jInternalLogueo();
-    jInternalSocios panelSocios;
     jInternalProductos panelProductos = new jInternalProductos();
     jInternalInformes panelInformes = new jInternalInformes();
     jInternalClases panelClases = new jInternalClases();
@@ -46,9 +45,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu(TablasCargar cargadorDeTablas, ControladoraLogica logica) {
         cargador = cargadorDeTablas;
         laLogica = logica;
-        panelSocios = new jInternalSocios();
         initComponents();
-        this.jDesktopPane1.add(panelSocios);
         this.jBtnClases.setEnabled(mostrar);
         this.jBtnInformes.setEnabled(mostrar);
         this.jBtnProductos.setEnabled(mostrar);
@@ -244,7 +241,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnProductosActionPerformed
 
     private void jBtnSociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSociosActionPerformed
-        panelSocios.setVisible(true);
+
     }//GEN-LAST:event_jBtnSociosActionPerformed
 
     private void jBtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIniciarSesionActionPerformed
