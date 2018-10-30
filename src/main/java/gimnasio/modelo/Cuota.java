@@ -1,67 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2018 wolix
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package gimnasio.modelo;
 
-import java.time.LocalDateTime;
-import javax.persistence.*;
-
 /**
  *
- * @author adrian
+ * @author wolix
  */
-
-@Entity
 public class Cuota {
     
-    @Id
-    @Column
-    private int codigo_cuota;
-    
-    @Column
-    private LocalDateTime fechaCuota;
-    
-    @Column
-    private LocalDateTime fechaVencimiento;
-    
-    @Column
-    private float montoCuota;
-
-    
-    
-    
-    public LocalDateTime getFechaCuota() {
-        return fechaCuota;
-    }
-
-    public void setFechaCuota(LocalDateTime fechaCuota) {
-        this.fechaCuota = fechaCuota;
-    }
-
-    public LocalDateTime getFechaVencimiento() {
-        return fechaVencimiento;
-    }
-
-    public void setFechaVencimiento(LocalDateTime fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
-    }
-
-    public float getMontoCuota() {
-        return montoCuota;
-    }
-
-    public void setMontoCuota(float montoCuota) {
-        this.montoCuota = montoCuota;
-    }
-
-    public Cuota(LocalDateTime fechaCuota, LocalDateTime fechaVencimiento, float montoCuota) {
-        this.fechaCuota = fechaCuota;
-        this.fechaVencimiento = fechaVencimiento;
-        this.montoCuota = montoCuota;
-    }
-
-    public Cuota() {
-    }
 }

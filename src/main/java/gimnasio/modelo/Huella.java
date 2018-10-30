@@ -21,5 +21,5 @@ package gimnasio.modelo;
  * @author wolix
  */
 public class Huella {
-    private String huella;  //varbinary en la base de datos
+    
 }

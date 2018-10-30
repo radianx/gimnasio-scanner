@@ -20,6 +20,6 @@ package gimnasio.modelo;
  *
  * @author wolix
  */
-public class CajaDiaria {
+public class Asistencia {
     
 }

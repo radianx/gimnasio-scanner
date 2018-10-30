@@ -1,80 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2018 wolix
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package gimnasio.modelo;
 
-import java.time.LocalDateTime;
-import javax.persistence.*;
-
 /**
  *
- * @author adrian
+ * @author wolix
  */
-//creada para clases de zumba, samba, crofi, peaMoa
-
-@Entity
 public class Clase {
     
-    @Id
-    @Column
-    private int codigoClase;
-    
-    @Column
-    private LocalDateTime horarioInicio;
-    
-    @Column
-    private LocalDateTime horarioFin;
-    
-    @Column
-    private int cupoMaximo;
-    
-    @Column
-    private int cupoActual;
-
-    
-    
-    
-    public LocalDateTime getHorarioInicio() {
-        return horarioInicio;
-    }
-
-    public void setHorarioInicio(LocalDateTime horarioInicio) {
-        this.horarioInicio = horarioInicio;
-    }
-
-    public LocalDateTime getHorarioFin() {
-        return horarioFin;
-    }
-
-    public void setHorarioFin(LocalDateTime horarioFin) {
-        this.horarioFin = horarioFin;
-    }
-
-    public int getCupoMaximo() {
-        return cupoMaximo;
-    }
-
-    public void setCupoMaximo(int cupoMaximo) {
-        this.cupoMaximo = cupoMaximo;
-    }
-
-    public int getCupoActual() {
-        return cupoActual;
-    }
-
-    public void setCupoActual(int cupoActual) {
-        this.cupoActual = cupoActual;
-    }
-
-    public Clase(LocalDateTime horarioInicio, LocalDateTime horarioFin, int cupoMaximo) {
-        this.horarioInicio = horarioInicio;
-        this.horarioFin = horarioFin;
-        this.cupoMaximo = cupoMaximo;
-        this.cupoActual = 0;
-    }
-
-    public Clase() {
-    }
 }
