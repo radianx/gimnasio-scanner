@@ -16,25 +16,40 @@
  */
 package gimnasio.modelo;
 
-import java.util.List;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 /**
  *
  * @author wolix
  */
+
 @Entity
-public class Huella {
-    @Id
-    private int Huella;
+public class Personal extends Persona implements Serializable{
     @Column
-    private List<String> listaDatos;
+    private String cargo;
     
-    public Huella(){
+    
+    public Personal() {
         
     }
     
-        
+    public Personal(String cargo){
+        super();
+        this.cargo = cargo;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+    
+    
+    
+    
+    
 }

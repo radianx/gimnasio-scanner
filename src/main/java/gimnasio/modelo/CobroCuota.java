@@ -16,25 +16,34 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author wolix
  */
 @Entity
-public class Huella {
-    @Id
-    private int Huella;
-    @Column
-    private List<String> listaDatos;
+public class CobroCuota extends Cobro implements Serializable{
     
-    public Huella(){
-        
+    @Column
+    private Double interes;
+    @OneToMany
+    private List<Cuota> listaCuotas;
+
+    public CobroCuota(int idCobro, LocalDateTime fechaCobro, Double monto) {
+        super(idCobro, fechaCobro, monto);
     }
     
-        
+    
+    public CobroCuota(Double interes){
+        super();
+        this.interes = interes;
+    }
+    
+    
 }

@@ -20,21 +20,25 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author wolix
  */
+
 @Entity
-public class Huella {
+public class Venta extends Cobro{
     @Id
-    private int Huella;
+    private int idVenta;
     @Column
-    private List<String> listaDatos;
+    private String estadoVenta;
+    @Column
+    private Double totalVenta;
+    @OneToMany
+    private List<DetalleVenta> listaArticulos;
     
-    public Huella(){
-        
+    public Venta(){
+        super();
     }
-    
-        
 }

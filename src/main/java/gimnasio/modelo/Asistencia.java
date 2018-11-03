@@ -16,7 +16,8 @@
  */
 package gimnasio.modelo;
 
-import java.util.List;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,15 +27,24 @@ import javax.persistence.Id;
  * @author wolix
  */
 @Entity
-public class Huella {
+public class Asistencia implements Serializable {
     @Id
-    private int Huella;
+    private int idAsistencia;
     @Column
-    private List<String> listaDatos;
+    private LocalDateTime horaIngreso;
+    @Column
+    private LocalDateTime horaSalida;
+    @Column
+    private String estadoAsistencia;
     
-    public Huella(){
+    
+    public Asistencia(){
         
     }
     
-        
+    public Asistencia(LocalDateTime horaIngreso){
+        this.horaIngreso = horaIngreso;
+    }
+    
+    
 }

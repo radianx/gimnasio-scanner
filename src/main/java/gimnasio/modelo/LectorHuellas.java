@@ -16,25 +16,10 @@
  */
 package gimnasio.modelo;
 
-import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  *
  * @author wolix
  */
-@Entity
-public class Huella {
-    @Id
-    private int Huella;
-    @Column
-    private List<String> listaDatos;
+public class LectorHuellas {
     
-    public Huella(){
-        
-    }
-    
-        
 }
