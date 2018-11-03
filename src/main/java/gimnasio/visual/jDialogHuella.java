@@ -171,11 +171,11 @@ public class jDialogHuella extends javax.swing.JDialog {
     
     public void stop(){
         lector.stopCapture();
-        txtArea.append("No se esta usando el lector de Huellas Dactular\n");
+        txtArea.append("Se detuvo la captura de huellas\n");
     }
     
     public void EstadoHuellas(){
-        txtArea.append("\nMuestra de Huellas Necesarias para Guardar Template " + reclutador.getFeaturesNeeded());
+        txtArea.append("\nCantidad de Huellas Necesarias para Guardar " + reclutador.getFeaturesNeeded());
     }
     
     public void setTemplate(DPFPTemplate template){

@@ -5,7 +5,7 @@
  */
 package gimnasio.visual;
 
-import gimnasio.controladoras.ControladoraLogica;
+
 import java.awt.Dimension;
 
 /**
@@ -22,12 +22,9 @@ public class MainMenu extends javax.swing.JFrame {
     jInternalInformes panelInformes = new jInternalInformes();
     jInternalClases panelClases = new jInternalClases();
     jTemporal panelTemporal = new jTemporal();
-    ControladoraLogica laLogica;
-    boolean mostrar = false;
+    jInternalUsuarios panelUsuarios = new jInternalUsuarios();
     
-    public MainMenu() {
-
-    }
+    boolean mostrar = false;
 
     public void actualizarTabla(){
     }
@@ -37,11 +34,9 @@ public class MainMenu extends javax.swing.JFrame {
         this.jBtnInformes.setEnabled(false);
         this.jBtnProductos.setEnabled(false);
         this.jBtnSocios.setEnabled(false);
-        this.jBtnIniciarSesion.setEnabled(true);
     }
     
-    public MainMenu(ControladoraLogica logica) {
-        laLogica = logica;
+    public MainMenu() {
         initComponents();
         this.jBtnClases.setEnabled(mostrar);
         this.jBtnInformes.setEnabled(mostrar);
@@ -53,6 +48,9 @@ public class MainMenu extends javax.swing.JFrame {
         jDesktopPane1.add(panelInformes);
         jDesktopPane1.add(panelProductos);
         jDesktopPane1.add(panelClases);
+        jDesktopPane1.add(panelUsuarios);
+        
+        this.setBtnsVisibility(false);
         
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension loginSize = panelLogin.getSize();
@@ -86,7 +84,6 @@ public class MainMenu extends javax.swing.JFrame {
         jBtnProductos = new javax.swing.JButton();
         jBtnClases = new javax.swing.JButton();
         jBtnInformes = new javax.swing.JButton();
-        jBtnIniciarSesion = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -114,7 +111,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.GridLayout(2, 2));
 
         jBtnSocios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/users(1).png"))); // NOI18N
-        jBtnSocios.setText("Socios/Cuotas");
+        jBtnSocios.setText("Usuarios");
         jBtnSocios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnSociosActionPerformed(evt);
@@ -149,33 +146,22 @@ public class MainMenu extends javax.swing.JFrame {
         });
         jPanel2.add(jBtnInformes);
 
-        jBtnIniciarSesion.setText("Iniciar Sesion");
-        jBtnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnIniciarSesionActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -236,12 +222,8 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnProductosActionPerformed
 
     private void jBtnSociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSociosActionPerformed
-
+        panelUsuarios.setVisible(true);
     }//GEN-LAST:event_jBtnSociosActionPerformed
-
-    private void jBtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIniciarSesionActionPerformed
-        panelLogin.setVisible(true);
-    }//GEN-LAST:event_jBtnIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,7 +264,6 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnClases;
     private javax.swing.JButton jBtnInformes;
-    private javax.swing.JButton jBtnIniciarSesion;
     private javax.swing.JButton jBtnProductos;
     private javax.swing.JButton jBtnSocios;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -298,13 +279,12 @@ public class MainMenu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setBtnsVisibility(boolean b) {
-        this.jBtnClases.setEnabled(b);
-        this.jBtnInformes.setEnabled(b);
-        this.jBtnIniciarSesion.setEnabled(!b);
-        this.jBtnProductos.setEnabled(b);
-        this.jBtnSocios.setEnabled(b);
-        this.jMenuArchivo.setEnabled(b);
-        this.jMenuEdicion.setEnabled(b);
+        this.jBtnClases.setEnabled(!b);
+        this.jBtnInformes.setEnabled(!b);
+        this.jBtnProductos.setEnabled(!b);
+        this.jBtnSocios.setEnabled(!b);
+        this.jMenuArchivo.setEnabled(!b);
+        this.jMenuEdicion.setEnabled(!b);
     }
 
 }
