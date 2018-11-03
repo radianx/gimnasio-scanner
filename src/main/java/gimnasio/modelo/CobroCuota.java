@@ -16,10 +16,34 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author wolix
  */
-public class CobroCuota {
+@Entity
+public class CobroCuota extends Cobro implements Serializable{
+    
+    @Column
+    private Double interes;
+    @OneToMany
+    private List<Cuota> listaCuotas;
+
+    public CobroCuota(int idCobro, LocalDateTime fechaCobro, Double monto) {
+        super(idCobro, fechaCobro, monto);
+    }
+    
+    
+    public CobroCuota(Double interes){
+        super();
+        this.interes = interes;
+    }
+    
     
 }

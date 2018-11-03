@@ -16,10 +16,56 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author wolix
  */
-public class Modulo {
+
+@Entity
+public class Modulo implements Serializable {
+    @Id
+    private int idModulo;
+    @Column
+    private String nombreModulo;
+    @Column
+    private String estadoModulo;
+    
+    
+    public Modulo(){
+        
+    }
+    
+    public Modulo(String nombreModulo){
+        this.nombreModulo = nombreModulo;
+    }
+    
+    public String getNombreModulo(){
+        return nombreModulo;
+    }
+    
+    public void setNombreModulo(String nombreModulo){
+        this.nombreModulo = nombreModulo;
+    }
+    
+    public String getEstadoModulo(){
+        return estadoModulo;
+    }
+    
+    public void setEstadoModulo(String estadoModulo){
+        this.estadoModulo = estadoModulo;
+    }
+    
+    public int getIdModulo(){
+        return idModulo;
+    }
+    
+    public void setIdModulo(int idoMdulo){
+        this.idModulo = idoMdulo;                
+    }
     
 }

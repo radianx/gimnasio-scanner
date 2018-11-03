@@ -16,10 +16,40 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
 /**
  *
  * @author wolix
  */
-public class Personal {
+
+@Entity
+public class Personal extends Persona implements Serializable{
+    @Column
+    private String cargo;
+    
+    
+    public Personal() {
+        
+    }
+    
+    public Personal(String cargo){
+        super();
+        this.cargo = cargo;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+    
+    
+    
+    
     
 }

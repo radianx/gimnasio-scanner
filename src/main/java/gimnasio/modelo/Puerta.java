@@ -16,10 +16,64 @@
  */
 package gimnasio.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author wolix
  */
+@Entity
 public class Puerta {
+    @Id
+    private int idPuerta;
+    @Column
+    private String descripcion;
+    @Column
+    private boolean estado;
+
+    public Puerta() {
+    }
+
+    public Puerta(int idPuerta, String descripcion, boolean estado) {
+        this.idPuerta = idPuerta;
+        this.descripcion = descripcion;
+        this.estado = estado;
+    }
+
+    public int getIdPuerta() {
+        return idPuerta;
+    }
+
+    public void setIdPuerta(int idPuerta) {
+        this.idPuerta = idPuerta;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Puerta{" + "idPuerta=" + idPuerta + ", descripcion=" + descripcion + ", estado=" + estado + '}';
+    }
+    
+    
+    
+    
+    
     
 }

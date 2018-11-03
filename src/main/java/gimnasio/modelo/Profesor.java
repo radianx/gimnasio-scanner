@@ -16,10 +16,19 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+
 /**
  *
  * @author wolix
  */
-public class Profesor {
+
+@Entity
+public class Profesor extends Persona implements Serializable{
     
+    
+    public Profesor(){
+        super();
+    }
 }

@@ -16,10 +16,79 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author wolix
  */
-public class InscripcionGym {
+
+@Entity
+public class InscripcionGym implements Serializable{
+    
+    @Id
+    private int idInscripcion;
+    @Column
+    private LocalDateTime fechaInscripcion;
+    @Column
+    private Double cuotaInicial;
+    @OneToOne
+    private Alumno alumnoInscripto;
+    
+    public InscripcionGym(){
+        
+    }
+    
+    public InscripcionGym(Alumno alumnoInscripto, LocalDateTime fechaInscripcion){
+        this.alumnoInscripto = alumnoInscripto;
+        this.fechaInscripcion = fechaInscripcion;
+    }
+    
+    public InscripcionGym(Alumno alumnoInscripto, LocalDateTime fechaInscdripcion, Double cuotaInicial){
+        this.alumnoInscripto = alumnoInscripto;
+        this.fechaInscripcion = fechaInscripcion;
+        this.cuotaInicial = cuotaInicial;
+    }
+    
+    
+    
+    public int getIdInsripcion(){
+        return idInscripcion;
+    }
+    
+    public void setIdInscripcion(int idInscripcion){
+        this.idInscripcion = idInscripcion;
+    }
+    
+    public LocalDateTime getFechaInscripcion() {
+        return fechaInscripcion;
+    }
+
+    public void setFechaInscripcion(LocalDateTime fechaInscripcion) {
+        this.fechaInscripcion = fechaInscripcion;
+    }
+
+    public Double getCuotaInicial() {
+        return cuotaInicial;
+    }
+
+    public void setCuotaInicial(Double cuotaInicial) {
+        this.cuotaInicial = cuotaInicial;
+    }
+
+    public Alumno getAlumnoInscripto() {
+        return alumnoInscripto;
+    }
+
+    public void setAlumnoInscripto(Alumno alumnoInscripto) {
+        this.alumnoInscripto = alumnoInscripto;
+    }
+    
+    
     
 }

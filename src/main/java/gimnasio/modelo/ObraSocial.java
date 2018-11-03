@@ -16,10 +16,64 @@
  */
 package gimnasio.modelo;
 
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author wolix
  */
+@Entity
 public class ObraSocial {
+    @Id
+    private int idObraSocial;
+    @Column
+    private String nombreObraSocial;
+    @Column
+    private List<String> telefonos;
+    
+    
+    public ObraSocial(){
+        
+    }
+    
+    public ObraSocial(String nombreObraSocial, List<String> telefonos){
+        this.nombreObraSocial = nombreObraSocial;
+        this.telefonos = telefonos;
+    }
+
+    public int getIdObraSocial() {
+        return idObraSocial;
+    }
+
+    public void setIdObraSocial(int idObraSocial) {
+        this.idObraSocial = idObraSocial;
+    }
+
+    public String getNombreObraSocial() {
+        return nombreObraSocial;
+    }
+
+    public void setNombreObraSocial(String nombreObraSocial) {
+        this.nombreObraSocial = nombreObraSocial;
+    }
+
+    public List<String> getTelefonos() {
+        return telefonos;
+    }
+
+    public void setTelefonos(List<String> telefonos) {
+        this.telefonos = telefonos;
+    }
+
+    @Override
+    public String toString() {
+        return "ObraSocial{" + "idObraSocial=" + idObraSocial + ", nombreObraSocial=" + nombreObraSocial + ", telefonos=" + telefonos + '}';
+    }
+    
+    
+    
     
 }

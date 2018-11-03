@@ -16,10 +16,68 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author wolix
  */
-public class Cobro {
+
+@Entity
+public class Cobro implements Serializable{
+    
+    @Id
+    private int idCobro;
+    @Column
+    private LocalDateTime fechaCobro;
+    @Column
+    private Double monto;
+    
+    public Cobro(){
+        
+    }
+    
+    public Cobro(int idCobro, LocalDateTime fechaCobro, Double monto) {
+        this.idCobro = idCobro;
+        this.fechaCobro = fechaCobro;
+        this.monto = monto;
+    }
+
+    public int getIdCobro() {
+        return idCobro;
+    }
+
+    public void setIdCobro(int idCobro) {
+        this.idCobro = idCobro;
+    }
+
+    public LocalDateTime getFechaCobro() {
+        return fechaCobro;
+    }
+
+    public void setFechaCobro(LocalDateTime fechaCobro) {
+        this.fechaCobro = fechaCobro;
+    }
+
+    public Double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(Double monto) {
+        this.monto = monto;
+    }
+
+    @Override
+    public String toString() {
+        return "Cobro{" + "idCobro=" + idCobro + ", fechaCobro=" + fechaCobro + ", monto=" + monto + '}';
+    }
+    
+    
+    
+    
     
 }

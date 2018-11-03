@@ -16,13 +16,84 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author wolix
  */
-public class Usuario extends Persona {
-    private double peso;
-    private double altura;
+
+@Entity
+public class Usuario implements Serializable{
+    @Id
+    private int idUsuario;
+    @Column
+    private String nombreUsuario;
+    @Column
+    private String contrasenia;
+    @OneToOne
+    private Huella huellaUsuario;
+    
+    public Usuario(){
+    }
+    
+    public Usuario(String nombreUsuario){
+        this.nombreUsuario = nombreUsuario;
+    }
+    
+    public Usuario(String nombreUsuario, String contrasenia){
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+    }
+    
+    public Usuario(String nombreUsuario, String contrasenia, Huella huellaUsuario){
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+        this.huellaUsuario= huellaUsuario;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public Huella getHuellaUsuario() {
+        return huellaUsuario;
+    }
+
+    public void setHuellaUsuario(Huella huellaUsuario) {
+        this.huellaUsuario = huellaUsuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenia=" + contrasenia + ", huellaUsuario=" + huellaUsuario + '}';
+    }
+    
+    
     
     
 }

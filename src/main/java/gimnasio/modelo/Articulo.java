@@ -16,10 +16,53 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author wolix
  */
-public class Articulo {
+
+@Entity
+public class Articulo implements Serializable{
+    @Id
+    private String idArticulo;
+    @Column
+    private String nombreArticulo;
+    @Column
+    private String descripcionArticulo;
+    @Column
+    private Double precioCompraArticulo;
+    @Column
+    private Double precioVentaArticulo;
+    @Column
+    private String estadoArticulo;
+    @Column
+    private int cantidadArticulo;
+    
+    
+    
+    public Articulo(){
+        
+    }
+    
+    public Articulo(String nombreArticulo){
+        this.nombreArticulo = nombreArticulo;
+    }
+    
+    public Articulo(String nombreArticulo, String descripcionArticulo){
+        this.nombreArticulo = nombreArticulo;
+        this.descripcionArticulo = descripcionArticulo;
+    }
+    
+    public Articulo(String nombreArticulo, String descripcionArticulo, Double precioCompraArticulo){
+        this.nombreArticulo = nombreArticulo;
+        this.descripcionArticulo = descripcionArticulo;
+        this.precioCompraArticulo = precioCompraArticulo;
+    }
+    
     
 }

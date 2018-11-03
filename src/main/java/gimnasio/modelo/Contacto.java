@@ -16,10 +16,68 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author wolix
  */
-public class Contacto {
+
+@Entity
+public class Contacto implements Serializable {
+    @Id
+    private int idContacto;
+    @OneToMany
+    private List<String> telefonos;
+    @OneToMany
+    private List<String> emails;
+    @Column
+    private String direccion;
+    
+    
+    public Contacto(){
+        
+    }
+    
+    public Contacto(List<String>telefonos){
+        this.telefonos = telefonos;
+    }
+    
+    
+    public String getDireccion(){
+        return direccion;
+    }
+    
+    public void setDireccion(String direccion){
+        this.direccion = direccion;
+    }
+    
+    public List<String> getTelefonos(){
+        return telefonos;
+    }
+    
+    public void setTelefonos(List<String>telefonos){
+        this.telefonos = telefonos;
+    }
+    
+    public List<String> getEmails(){
+        return emails;
+    }
+    
+    public void setEmails(List<String>emails){
+        this.emails = emails;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacto{" + "idContacto=" + idContacto + ", telefonos=" + telefonos + ", emails=" + emails + ", direccion=" + direccion + '}';
+    }
+    
+    
     
 }

@@ -16,10 +16,87 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author wolix
  */
-public class Modalidad {
+
+@Entity
+public class Modalidad implements Serializable{
+    @Id
+    private int idModalidad;
+    @Column
+    private String nombreModalidad;    
+    @Column
+    private String descripcionModalidad;
+    @Column
+    private Double precioHora;
+    
+    
+    
+    
+    public Modalidad(){
+        
+    }
+    
+    public Modalidad(String nombreModalidad){
+        this.nombreModalidad = nombreModalidad;
+    }
+    
+    public Modalidad(String nombreModalidad, Double precioHora){
+        this.nombreModalidad = nombreModalidad;
+        this.precioHora = precioHora;
+    }
+    
+    public Modalidad(String nombreModalidad, String descripcionModalidad, Double precioHora){
+        this.nombreModalidad = descripcionModalidad;
+        this.descripcionModalidad = descripcionModalidad;
+        this.precioHora = precioHora;
+    }
+    
+    
+    public String getNombreModalidad(){
+        return nombreModalidad;
+    }
+    
+    public void setNombreModalidad(String nombreModalidad){
+        this.nombreModalidad = nombreModalidad;
+    }
+    
+    public Double getPrecioHora(){
+        return precioHora;
+    }
+    
+    public void setPrecioHora(Double precioHora){
+        this.precioHora = precioHora;
+    }
+
+    public int getIdModalidad() {
+        return idModalidad;
+    }
+
+    public void setIdModalidad(int idModalidad) {
+        this.idModalidad = idModalidad;
+    }
+
+    public String getDescripcionModalidad() {
+        return descripcionModalidad;
+    }
+
+    public void setDescripcionModalidad(String descripcionModalidad) {
+        this.descripcionModalidad = descripcionModalidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Modalidad{" + "idModalidad=" + idModalidad + ", nombreModalidad=" + nombreModalidad + ", descripcionModalidad=" + descripcionModalidad + ", precioHora=" + precioHora + '}';
+    }
+    
+    
     
 }

@@ -16,10 +16,63 @@
  */
 package gimnasio.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
 /**
  *
  * @author wolix
  */
-public class Alumno {
+@Entity
+public class Alumno extends Persona implements Serializable{
+    
+    
+    @Column
+    private Double peso;
+    @Column
+    private Double altura;;
+    
+    
+    public Alumno(){
+        super();
+    }
+    
+    public Alumno(Double altura){
+        super();
+        this.altura = altura;
+    }
+    
+    public Alumno(Double altura, Double peso){
+        super();
+        this.altura = altura;
+        this.peso =peso;
+    }
+
+    
+    
+    public Double getAltura() {
+        return altura;
+    }
+    
+    public Double getPeso(){
+        return peso;
+    }
+
+    public void setAltura(Double altura) {
+        this.altura = altura;
+    }
+    
+    public void setPeso(Double peso){
+        this.peso = peso;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" + "peso=" + peso + ", altura=" + altura + '}';
+    }
+    
+    
+    
     
 }

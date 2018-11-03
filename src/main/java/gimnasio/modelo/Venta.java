@@ -16,10 +16,29 @@
  */
 package gimnasio.modelo;
 
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author wolix
  */
-public class Venta {
+
+@Entity
+public class Venta extends Cobro{
+    @Id
+    private int idVenta;
+    @Column
+    private String estadoVenta;
+    @Column
+    private Double totalVenta;
+    @OneToMany
+    private List<DetalleVenta> listaArticulos;
     
+    public Venta(){
+        super();
+    }
 }
