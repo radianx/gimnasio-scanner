@@ -16,6 +16,7 @@
  */
 package gimnasio.modelo;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +31,7 @@ public class Huella {
     @Id
     private int Huella;
     @Column
-    private List<String> listaDatos;
+    private List<ByteArrayInputStream> listaDatos;
     
     public Huella(){
         
