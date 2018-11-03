@@ -40,15 +40,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import gimnasio.visual.testConexionBD.ConexionBD;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author Family
@@ -209,50 +202,23 @@ public class jEscaneoHuellas extends javax.swing.JFrame {
         }
     }
     
-    ConexionBD cn = new ConexionBD();
     
-    public void guardarHuella() throws SQLException{
+    public void guardarHuella(){
         ByteArrayInputStream datosHuella = new ByteArrayInputStream(planilla.serialize());
         Integer tamanoHuella=planilla.serialize().length;
     //pregunta el nombre de la persona a la cual corresponde dicha huella
         String nombre = JOptionPane.showInputDialog("Nombre: ");
-        try{
-            //establecer los valores para sentencia sql
-            Connection c=cn.conectar();
-            PreparedStatement guardarStmt = c.prepareStatement("INSERT INTO somhue(huenombre, huehuella) values(?,?)");
-            guardarStmt.setString(1, nombre);
-            guardarStmt.setBinaryStream(2, datosHuella, tamanoHuella);
-            //Ejecuta la sentencia
-            guardarStmt.execute();
-            guardarStmt.close();
-            JOptionPane.showMessageDialog(null,"Huella Guardada Correctamente");
-            cn.desconectar();
+            
+        JOptionPane.showMessageDialog(null,"Huella Guardada Correctamente");
             this.btnGuardar.setEnabled(false);
             this.btnVerificar.grabFocus();
-        }catch(SQLException ex){
-            //Si ocurre un error lo indica en la consola
-            System.err.println("Error al guardar los datos de la huella.");
-        }finally{
-            cn.desconectar();
-        }        
     }
     
     public void verificarHuella(String nom){
-        //Verifica la huella digital actual contra otra en la base de datos
-    try{
-        //Establece valores para la sentencia SQL
-        Connection c=cn.conectar();
-        //Obtiene la plantilla correspondiente a la persona indicada
-        PreparedStatement verificarStmt = c.prepareCall("SELECT huehuella FROM somhue WHERE huenombre=?");
-        verificarStmt.setString(1,nom);
-        ResultSet rs = verificarStmt.executeQuery();
-        
-        //si se enuentra el nombre en la base de datos
-        if(rs.next()){
-            //leo la plantilla de la base de datos
-            byte templateBuffer[] = rs.getBytes("huehuella");
+            
+            
             //Crea una nueva plantilla a partir de la guardada en la base de datos
-            DPFPTemplate referenceTemplate = DPFPGlobal.getTemplateFactory().createTemplate(templateBuffer);
+            DPFPTemplate referenceTemplate = DPFPGlobal.getTemplateFactory().createTemplate();
             //Envia la plantilla creada al objeto contendor de Template del componente de huella digital
             setTemplate(referenceTemplate);
             
@@ -260,69 +226,11 @@ public class jEscaneoHuellas extends javax.swing.JFrame {
             //con la plantilla guardada al usuario especifico en la base de datos
             DPFPVerificationResult result = verificador.verify(this.featuresvertification, getTemplate());
             
-            //compara las plantillas (actual vs bd)
-            if(result.isVerified())
-                JOptionPane.showMessageDialog(null, "La huella capturada coincide con la de "+nom,"Verificacion de Huella", JOptionPane.ERROR_MESSAGE);
-            else
-                JOptionPane.showMessageDialog(null, "No corresponde la huella con "+nom, "Verificacion de huella", JOptionPane.ERROR_MESSAGE);
-        //Si no encuentra alguna huella correspondiente al nombre, le aviso con un mensaje    
-        } else{
-            JOptionPane.showMessageDialog(null, "No existe un registro de huella para "+nom, "Verificaciond e Huella", JOptionPane.ERROR_MESSAGE);            
-        }
-        } catch (SQLException e){
-            //si ocurre un error lo indica en la consola
-            System.err.println("Error al verificar los datos de la huella");
-        } finally{
-            cn.desconectar();
-        }
+          
     }
     
-    public void identificarHuella() throws IOException, SQLException{
-        
-        
-        try{
-            //Establece los valores para la sentencia SQL
-            Connection c=cn.conectar();
-            //Obtiene todas las huellas de la bd
-            PreparedStatement identificarSTMT = c.prepareStatement("SELECT huenombre,huehuella FROM somhue");
-            ResultSet rs = identificarSTMT.executeQuery();
-            //si se encuentra el nombre en la base de datos
-            while(rs.next()){
-                //lee la plantilla de la base de datos
-                byte templateBuffer[];
-                try {
-                    templateBuffer = rs.getBytes("huehuella");
-                } catch (SQLException ex) {
-                    Logger.getLogger(jEscaneoHuellas.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                String nombre=rs.getString("huenombre");
-                //Crea una nueva plantilla a partir de la guardada en la base de datos
-                DPFPTemplate referenceTemplate = DPFPGlobal.getTemplateFactory().createTemplate(templateBuffer);
-                //Envia la plantilla creada al objeto contenedor de template del
-                //componente de huella digital
-                setTemplate(referenceTemplate);
-                //Compara las caracteristicas de la huella recientemente capturada
-                //con alguna plantilla guardada en la base de datos que coincide con ese tipo
-                DPFPVerificationResult result = verificador.verify(this.featuresvertification, getTemplate());
-                //compara las plantillas (actual vs bd)
-                //Si encuentra correspondencia dibuja el mapa
-                //e indica el nombre de la persona que coincidio.
-                if(result.isVerified()){
-                    //crea la imagen de los datos guardados de las huellas guardadas
-                    //en la base de datos
-                    JOptionPane.showMessageDialog(null, "La hulla capturada es de "+ nombre, "Verificacion de huella ", JOptionPane.INFORMATION_MESSAGE);
-                    return;
-                    }
-            }
-            //Si no encuentra alguna hulla correspondiente al nombre lo indica con un mensaje
-            JOptionPane.showMessageDialog(null, "No existe ningun registro que coincida con la huella", "Verificacion de Huella", JOptionPane.INFORMATION_MESSAGE);
-            setTemplate(null);
-        } catch (SQLException e){
-            //Si ocurre un error lo indica en la consola
-            System.err.println("Error al identificar huella dactialr."+e.getMessage());
-        } finally{
-            cn.desconectar();
-        }
+    public void identificarHuella(){
+      
     }
     
     
@@ -488,25 +396,15 @@ public class jEscaneoHuellas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        try{
             guardarHuella();
             reclutador.clear();
             this.lblHuella.setIcon(null);
             start();
-        } catch(SQLException ex){
-            System.err.println(ex.getMessage());
-        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnIdentificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdentificarActionPerformed
-        try{ 
-            identificarHuella();
+             identificarHuella();
             reclutador.clear();
-        } catch(IOException ex){
-            System.err.println(ex.getMessage());
-        } catch (SQLException ex) {
-            Logger.getLogger(jEscaneoHuellas.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_btnIdentificarActionPerformed
 
     /**
