@@ -31,7 +31,7 @@ public class Huella {
     @Id
     private int Huella;
     @Column
-    private List<ByteArrayInputStream> listaDatos;
+    private List<ByteArrayInputStream> lecturaHuellas;
     
     public Huella(){
         
