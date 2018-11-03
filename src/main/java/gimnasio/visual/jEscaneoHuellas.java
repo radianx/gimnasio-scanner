@@ -41,7 +41,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 /**
  *
  * @author Family
@@ -114,7 +113,7 @@ public class jEscaneoHuellas extends javax.swing.JFrame {
         try{
             return extractor.createFeatureSet(sample, purpose);
         }catch(DPFPImageQualityException e){
-            return null; //no me convence
+            return null;
         }
     }
     
@@ -226,6 +225,11 @@ public class jEscaneoHuellas extends javax.swing.JFrame {
             //con la plantilla guardada al usuario especifico en la base de datos
             DPFPVerificationResult result = verificador.verify(this.featuresvertification, getTemplate());
             
+            if(result.isVerified()){
+                JOptionPane.showMessageDialog(null, "La huella capturada coincide con la de ", "Verificacion de huella", JOptionPane.INFORMATION_MESSAGE);           
+            } else{
+                JOptionPane.showMessageDialog(null, "No corresponde la huella con ", "Verificacion de huella", JOptionPane.ERROR_MESSAGE);
+            }
           
     }
     
@@ -386,6 +390,8 @@ public class jEscaneoHuellas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTuViejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTuViejaActionPerformed
+        Iniciar();
+        start();
         this.txtArea.append("\n Tu vieja");
     }//GEN-LAST:event_btnTuViejaActionPerformed
 
@@ -435,10 +441,8 @@ public class jEscaneoHuellas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new jEscaneoHuellas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new jEscaneoHuellas().setVisible(true);
         });
     }
 

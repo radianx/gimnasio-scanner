@@ -22,7 +22,6 @@ public class MainMenu extends javax.swing.JFrame {
     jInternalInformes panelInformes = new jInternalInformes();
     jInternalClases panelClases = new jInternalClases();
     jTemporal panelTemporal = new jTemporal();
-    TablasCargar cargador;
     ControladoraLogica laLogica;
     boolean mostrar = false;
     
@@ -31,7 +30,6 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     public void actualizarTabla(){
-        cargador.cargarTabla(jTable1) ;
     }
     
     public void cerrarSesion(){
@@ -42,16 +40,13 @@ public class MainMenu extends javax.swing.JFrame {
         this.jBtnIniciarSesion.setEnabled(true);
     }
     
-    public MainMenu(TablasCargar cargadorDeTablas, ControladoraLogica logica) {
-        cargador = cargadorDeTablas;
+    public MainMenu(ControladoraLogica logica) {
         laLogica = logica;
         initComponents();
         this.jBtnClases.setEnabled(mostrar);
         this.jBtnInformes.setEnabled(mostrar);
         this.jBtnProductos.setEnabled(mostrar);
         this.jBtnSocios.setEnabled(mostrar);
-        
-        cargador.cargarTabla(jTable1);
         
         jDesktopPane1.add(panelTemporal);
         jDesktopPane1.add(panelLogin);

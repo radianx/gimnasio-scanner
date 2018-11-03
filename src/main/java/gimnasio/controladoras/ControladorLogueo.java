@@ -42,27 +42,7 @@ public class ControladorLogueo implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == login.getAceptar()){
-            String user = login.getUsuario();
-            String pass = login.getPass();
-            if(user.trim().length() <= 0 && pass.trim().length() <=0){
-                showMessage("Ingresa tu usuario y/o contraseña");
-            } else if(user.trim().length() <=0){
-                showMessage("Ingresa tu usuario");
-            } else if(pass.trim().length() <=0){
-                showMessage("Ingresa tu contraseña");
-            } else if(logica.login(user, pass)){
-                showMessage("Bienvenido");
-                login.setVisible(false);
-                main.setBtnsVisibility(true);
-                main.actualizarTabla();
-            } else {
-                showMessage("Usuario o contraseña invalidos");
-            }
-        }
-        if(e.getSource() == login.getCancelar()){
-            login.setVisible(false);
-        }
+        
     }
     
 }
