@@ -5,14 +5,12 @@
  */
 package gimnasio.controladoras;
 
-import gimnasio.modelo.AsistenciaSocio;
+import gimnasio.modelo.Alumno;
+import gimnasio.modelo.Articulo;
 import gimnasio.modelo.CajaDiaria;
 import gimnasio.modelo.Clase;
 import gimnasio.modelo.Cuota;
-import gimnasio.modelo.Entrenamiento;
-import gimnasio.modelo.Producto;
-import gimnasio.modelo.RegistroLogueo;
-import gimnasio.modelo.Socio;
+import gimnasio.modelo.Profesor;
 import gimnasio.modelo.Usuario;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,15 +22,16 @@ import java.util.List;
  * @author adrian
  */
 public class ControladoraLogica {
-     List<AsistenciaSocio> listaAsistencias = new ArrayList();
-     List<CajaDiaria> listaCajasDiarias = new ArrayList();
-     List<Clase> listaClases = new ArrayList();
-     List<Cuota> listaCuotas = new ArrayList();
-     List<Socio> listaSocios = new ArrayList();
-     List<Usuario> listaUsuarios = new ArrayList();
-     List<Producto> listaProductos = new ArrayList();
-     List<RegistroLogueo> listalLogins = new ArrayList();
-     List<Entrenamiento> listaEntrenamientos = new ArrayList();
+    List<Alumno> listaAlumnos = new ArrayList();
+    List<Articulo> listaArticulos = new ArrayList();
+    List<CajaDiaria> listaCajasDiarias = new ArrayList();
+    List<Clase> listaClases = new ArrayList();
+    List<Cuota> listaCuotas = new ArrayList();
+    List<Profesor> listaProfesores = new ArrayList();
+    List<Usuario> listaUsuarios = new ArrayList();
+    
+    List<RegistroLogueo> listalLogins = new ArrayList();
+    List<Modalidad> listaModalidades = new ArrayList();
 
     public List<Entrenamiento> getListaEntrenamientos() {
         return listaEntrenamientos;
