@@ -41,46 +41,46 @@ public class jInternalUsuarios extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        btnAgregarUsuario = new javax.swing.JButton();
-        btnMostrarUsuarios = new javax.swing.JButton();
+        btnAgregarAlumno = new javax.swing.JButton();
+        btnMostrarAlumnos = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("GESTION DE USUARIOS");
+        setTitle("GESTION DE ALUMNOS");
         setMinimumSize(new java.awt.Dimension(750, 420));
         setPreferredSize(new java.awt.Dimension(750, 420));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
-        btnAgregarUsuario.setText("Agregar Usuario");
-        btnAgregarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarAlumno.setText("Agregar Alumno");
+        btnAgregarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarUsuarioActionPerformed(evt);
+                btnAgregarAlumnoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAgregarUsuario);
+        jPanel2.add(btnAgregarAlumno);
 
-        btnMostrarUsuarios.setText("Mostrar Usuarios");
-        jPanel2.add(btnMostrarUsuarios);
+        btnMostrarAlumnos.setText("Mostrar Alumnos");
+        jPanel2.add(btnMostrarAlumnos);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioActionPerformed
-        this.add(new jPanelAgregarUsuario(), BorderLayout.CENTER);
+    private void btnAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAlumnoActionPerformed
+        this.add(new jPanelAgregarAlumno(), BorderLayout.CENTER);
         revalidate();
-    }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
+    }//GEN-LAST:event_btnAgregarAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarUsuario;
-    private javax.swing.JButton btnMostrarUsuarios;
+    private javax.swing.JButton btnAgregarAlumno;
+    private javax.swing.JButton btnMostrarAlumnos;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
