@@ -44,9 +44,14 @@ public class jInternalUsuarios extends javax.swing.JInternalFrame {
         btnAgregarUsuario = new javax.swing.JButton();
         btnMostrarUsuarios = new javax.swing.JButton();
 
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
         setResizable(true);
-        setMinimumSize(new java.awt.Dimension(500, 400));
-        setPreferredSize(new java.awt.Dimension(500, 400));
+        setTitle("GESTION DE USUARIOS");
+        setMinimumSize(new java.awt.Dimension(750, 420));
+        setPreferredSize(new java.awt.Dimension(750, 420));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
